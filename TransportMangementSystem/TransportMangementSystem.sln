@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportMangementSystem", "TransportMangementSystem.csproj", "{720193E1-D674-43C7-832D-ED69C633276B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketMangementSystem.Tests", "..\TicketMangementSystem.Tests\TicketMangementSystem.Tests.csproj", "{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{720193E1-D674-43C7-832D-ED69C633276B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720193E1-D674-43C7-832D-ED69C633276B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720193E1-D674-43C7-832D-ED69C633276B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720193E1-D674-43C7-832D-ED69C633276B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F91853A0-3399-4F21-8C7D-63E374B33FE1}
+	EndGlobalSection
+EndGlobal
