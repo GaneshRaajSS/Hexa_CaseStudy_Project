@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using TransportMangementSystem.Exceptions;
 using TransportMangementSystem.Model;
 using TransportMangementSystem.Util;
@@ -140,6 +134,7 @@ namespace TransportMangementSystem.Repository
             {
                 cmd.Connection.Open();
                 cmd.CommandText = "Delete from Vehicles Where VehicleID  = @VehicleId";
+                cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@VehicleId", vehicleId);
                 int deleteVehicleStatus = cmd.ExecuteNonQuery();
                 if (deleteVehicleStatus == 0)
@@ -150,11 +145,6 @@ namespace TransportMangementSystem.Repository
                 return deleteVehicleStatus > 0;
             }
             catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-            catch (VehcileNotFoundException ex)
             {
                 Console.WriteLine(ex.Message);
                 return false;

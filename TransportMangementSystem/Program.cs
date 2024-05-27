@@ -1,7 +1,4 @@
-﻿using TransportMangementSystem.Model;
-using TransportMangementSystem.Repository;
-using TransportMangementSystem.Service;
-
+﻿
 namespace TransportMangementSystem
 {
     internal class Program

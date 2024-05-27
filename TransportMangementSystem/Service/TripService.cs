@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TransportMangementSystem.Model;
+﻿
 using TransportMangementSystem.Repository;
 
 namespace TransportMangementSystem.Service
@@ -31,21 +26,25 @@ namespace TransportMangementSystem.Service
             DateTime arrivalDate = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("Enter Max Passengers:");
             int maxPassengers = int.Parse(Console.ReadLine());
-            bool scheduleTripStatus = tripRepo.ScheduleTrip(vehicleId, routeId, departureDate, arrivalDate,maxPassengers);
-            if (scheduleTripStatus)
+
+            int scheduledTripId = tripRepo.ScheduleTrip(vehicleId, routeId, departureDate, arrivalDate, maxPassengers);
+            if (scheduledTripId <= 0)
             {
-                Console.WriteLine("Trip scheduled successfully.Please allocate Driver.");
+                Console.WriteLine("Failed to schedule trip.");
+                return false;
             }
             else
             {
-                Console.WriteLine("Failed to schedule trip.");
+                Console.WriteLine("Trip scheduled successfully. Details:");
+                tripRepo.DisplayScheduledTripDetails(scheduledTripId);
+                Console.WriteLine("Please allocate a Driver.");
+                return true;
             }
-            return scheduleTripStatus;
         }
 
         public bool CancelTrip()
         {
-            tripRepo.DisplayTrips();
+            tripRepo.DisplayTripsForCancelation();
             Console.Write("Enter Trip ID:");
             int tripId = int.Parse(Console.ReadLine());
             bool cancelTripStatus = tripRepo.CancelTrip(tripId);

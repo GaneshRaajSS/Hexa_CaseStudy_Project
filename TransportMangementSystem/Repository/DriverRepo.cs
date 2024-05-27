@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using TransportMangementSystem.Model;
 using TransportMangementSystem.Util;
-using TransportMangementSystem.Exception;
+
 
 namespace TransportMangementSystem.Repository
 {
@@ -86,7 +81,6 @@ namespace TransportMangementSystem.Repository
                 cmd.Connection.Close();
             }
         }
-
 
         public List<Driver> AvailableDrivers()
         {

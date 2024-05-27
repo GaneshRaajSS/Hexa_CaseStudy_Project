@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using TransportMangementSystem.Model;
 
 namespace TransportMangementSystem.Repository
@@ -15,7 +10,5 @@ namespace TransportMangementSystem.Repository
         public bool UpdateVehicle(Vehicles vehicles);
         public bool DeleteVehicle(int vehicleId);
         public List<Vehicles> GetAllAvailableVehicles();
-
-
     }
 }

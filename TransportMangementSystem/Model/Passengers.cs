@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace TransportMangementSystem.Model
 {
     public class Passengers
@@ -14,7 +9,8 @@ namespace TransportMangementSystem.Model
         int age;
         string email;
         string phoneNumber;
-
+        string password;
+        string role;
         public int PassengersId
         {
             get { return passengersId; }
@@ -45,19 +41,35 @@ namespace TransportMangementSystem.Model
             get { return phoneNumber; }
             set { phoneNumber = value; }
         }
-
-        public Passengers(int passengersId, string name, string gender, int age, string email, string phoneNumber)
+        public string Password
         {
-            PassengersId= passengersId;
-            Name= name;
-            Gender= gender;
-            Age= age;
-            Email= email;
-            PhoneNumber= phoneNumber;
+            get { return password; }
+            set { password = value; }
+        }
+        public string Role
+        {
+            get { return role; }
+            set { role = value; }
+        }
+
+        public Passengers(int passengersId, string name, string gender, int age, string email, string phoneNumber, string password, string role)
+        {
+            PassengersId = passengersId;
+            Name = name;
+            Gender = gender;
+            Age = age;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            Password = password;
+            Role = role;
         }
         public Passengers()
         {
             
+        }
+        public bool CheckIfUserIsAdmin()
+        {
+            return Role == "Admin";
         }
     }
 }

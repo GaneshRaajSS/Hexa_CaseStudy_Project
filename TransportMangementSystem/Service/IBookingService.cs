@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TransportMangementSystem.Model;
+﻿using TransportMangementSystem.Model;
 
 namespace TransportMangementSystem.Service
 {
     public interface IBookingService
     {
-        public bool BookTrip();
-        public bool CancelBooking();
+        public bool BookTrip(Passengers user);
+        public bool CancelBooking(Passengers user);
         public void GetBookingsByTrip();
-        public void getBookingsByPassenger();
-
+        public void GetBookingsByTrip(int userId);
+        public void GetBookingsByPassenger();
+        public void GetBookingsByPassenger(Passengers passenger);
     }
 }
