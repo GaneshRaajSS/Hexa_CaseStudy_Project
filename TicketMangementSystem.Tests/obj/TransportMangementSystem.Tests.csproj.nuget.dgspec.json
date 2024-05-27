@@ -1,31 +1,17 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TicketMangementSystem.Tests\\TicketMangementSystem.Tests.csproj": {}
+    "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\TransportMangementSystem.Tests.csproj": {}
   },
   "projects": {
-    "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TicketMangementSystem.Tests\\TicketMangementSystem.Tests.csproj": {
+    "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\TransportMangementSystem.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TicketMangementSystem.Tests\\TicketMangementSystem.Tests.csproj",
-        "projectName": "TicketMangementSystem.Tests",
-        "projectPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TicketMangementSystem.Tests\\TicketMangementSystem.Tests.csproj",
-        "packagesPath": "C:\\Users\\rahav\\.nuget\\packages\\",
-        "outputPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TicketMangementSystem.Tests\\obj\\",
-=======
-    "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\TicketMangementSystem.Tests.csproj": {}
-  },
-  "projects": {
-    "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\TicketMangementSystem.Tests.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\TicketMangementSystem.Tests.csproj",
-        "projectName": "TicketMangementSystem.Tests",
-        "projectPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\TicketMangementSystem.Tests.csproj",
+        "projectUniqueName": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\TransportMangementSystem.Tests.csproj",
+        "projectName": "TransportMangementSystem.Tests",
+        "projectPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\TransportMangementSystem.Tests.csproj",
         "packagesPath": "C:\\Users\\rahav\\.nuget\\packages\\",
         "outputPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\obj\\",
->>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rahav\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,13 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TransportMangementSystem\\TransportMangementSystem.csproj": {
-                "projectPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TransportMangementSystem\\TransportMangementSystem.csproj"
-=======
               "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TransportMangementSystem\\TransportMangementSystem.csproj": {
                 "projectPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TransportMangementSystem\\TransportMangementSystem.csproj"
->>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
               }
             }
           }
@@ -109,16 +90,6 @@
         }
       }
     },
-<<<<<<< HEAD
-    "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TransportMangementSystem\\TransportMangementSystem.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TransportMangementSystem\\TransportMangementSystem.csproj",
-        "projectName": "TransportMangementSystem",
-        "projectPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TransportMangementSystem\\TransportMangementSystem.csproj",
-        "packagesPath": "C:\\Users\\rahav\\.nuget\\packages\\",
-        "outputPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TransportMangementSystem\\obj\\",
-=======
     "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TransportMangementSystem\\TransportMangementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -127,7 +98,6 @@
         "projectPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TransportMangementSystem\\TransportMangementSystem.csproj",
         "packagesPath": "C:\\Users\\rahav\\.nuget\\packages\\",
         "outputPath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TransportMangementSystem\\obj\\",
->>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rahav\\AppData\\Roaming\\NuGet\\NuGet.Config",

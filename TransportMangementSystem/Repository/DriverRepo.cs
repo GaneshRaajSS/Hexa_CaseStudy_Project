@@ -1,7 +1,19 @@
+<<<<<<< HEAD
 ﻿using System.Data.SqlClient;
 using TransportMangementSystem.Model;
 using TransportMangementSystem.Util;
 
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TransportMangementSystem.Model;
+using TransportMangementSystem.Util;
+using TransportMangementSystem.Exception;
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 
 namespace TransportMangementSystem.Repository
 {
@@ -82,6 +94,10 @@ namespace TransportMangementSystem.Repository
             }
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
         public List<Driver> AvailableDrivers()
         {
                 cmd.Connection.Open();

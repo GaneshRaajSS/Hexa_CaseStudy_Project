@@ -7,11 +7,7 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = TicketMangementSystem.Tests
-<<<<<<< HEAD
-build_property.ProjectDir = D:\Ganesh Raaj\HEXAWARE segue\Technical Foundation Training\C#\Case Study\TicketMangementSystem.Tests\
-=======
+build_property.RootNamespace = TransportMangementSystem.Tests
 build_property.ProjectDir = D:\Ganesh Raaj\HEXAWARE segue\Technical Foundation Training\Case Study\TicketMangementSystem.Tests\
->>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

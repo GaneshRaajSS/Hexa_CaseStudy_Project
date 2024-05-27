@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 ﻿using System.Data.SqlClient;
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 using TransportMangementSystem.Exceptions;
 using TransportMangementSystem.Model;
 using TransportMangementSystem.Util;
@@ -134,7 +144,10 @@ namespace TransportMangementSystem.Repository
             {
                 cmd.Connection.Open();
                 cmd.CommandText = "Delete from Vehicles Where VehicleID  = @VehicleId";
+<<<<<<< HEAD
                 cmd.Parameters.Clear();
+=======
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
                 cmd.Parameters.AddWithValue("@VehicleId", vehicleId);
                 int deleteVehicleStatus = cmd.ExecuteNonQuery();
                 if (deleteVehicleStatus == 0)
@@ -149,6 +162,14 @@ namespace TransportMangementSystem.Repository
                 Console.WriteLine(ex.Message);
                 return false;
             }
+<<<<<<< HEAD
+=======
+            catch (VehcileNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             finally
             {
                 cmd.Connection.Close();

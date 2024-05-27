@@ -4,6 +4,7 @@
     "signature": ""
   },
   "compilationOptions": {},
+<<<<<<< HEAD
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "TransportMangementSystem/1.0.0": {
@@ -370,3 +371,6 @@
     }
   }
 }
+=======
+  "targets": {
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904

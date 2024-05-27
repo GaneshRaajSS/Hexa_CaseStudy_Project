@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "nidcjA566nD6IUbcsjjEQTar2k/LXqbDxgehEUEbG6X2zinC0FKVNzUNJdly2sRzhWOIxhZsW3ZvHC0KhxhD0g==",
   "success": true,
   "projectFilePath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\C#\\Case Study\\TicketMangementSystem.Tests\\TicketMangementSystem.Tests.csproj",
+=======
+  "dgSpecHash": "Qg86KQcUAD20LiBZtm9ElTExzQfsC0j5mDR9Nk4AQir842XMABQZLEI9IZzpnrqaejmTb5RklIF6B5l19m5s0A==",
+  "success": true,
+  "projectFilePath": "D:\\Ganesh Raaj\\HEXAWARE segue\\Technical Foundation Training\\Case Study\\TicketMangementSystem.Tests\\TransportMangementSystem.Tests.csproj",
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
   "expectedPackageFiles": [
     "C:\\Users\\rahav\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\rahav\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

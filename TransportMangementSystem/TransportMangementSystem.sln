@@ -5,7 +5,11 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportMangementSystem", "TransportMangementSystem.csproj", "{720193E1-D674-43C7-832D-ED69C633276B}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportManagementSystem.Tests", "..\TransportManagementSystem.Tests\TransportManagementSystem.Tests.csproj", "{6964F46F-9C3A-414B-BF7E-B62C58114CEA}"
+=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportMangementSystem.Tests", "..\TicketMangementSystem.Tests\TransportMangementSystem.Tests.csproj", "{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}"
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +21,17 @@ Global
 		{720193E1-D674-43C7-832D-ED69C633276B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{720193E1-D674-43C7-832D-ED69C633276B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{720193E1-D674-43C7-832D-ED69C633276B}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{6964F46F-9C3A-414B-BF7E-B62C58114CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6964F46F-9C3A-414B-BF7E-B62C58114CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6964F46F-9C3A-414B-BF7E-B62C58114CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6964F46F-9C3A-414B-BF7E-B62C58114CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E55B2D-8C81-4F29-B9A1-1D4C51B5F7E5}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

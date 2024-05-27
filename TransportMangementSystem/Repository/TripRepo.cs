@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 ﻿using System.Data.SqlClient;
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Transactions;
+using TransportMangementSystem.Model;
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 using TransportMangementSystem.Util;
 
 namespace TransportMangementSystem.Repository
@@ -7,12 +18,18 @@ namespace TransportMangementSystem.Repository
     {
         SqlConnection sqlConnection = null;
         SqlCommand cmd = null;
+<<<<<<< HEAD
+=======
+        VehicleRepo vehicles;
+        Routes routes;
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 
         public TripRepo()
         {
             sqlConnection = new SqlConnection(DbConnUtil.GetConnectionString());
             cmd = new SqlCommand();
             cmd.Connection = sqlConnection;
+<<<<<<< HEAD
         }
         public int ScheduleTrip(int vehicleId, int routeId, DateTime departureDate, DateTime arrivalDate, int maxPassengers)
         {
@@ -36,6 +53,16 @@ namespace TransportMangementSystem.Repository
                 cmd.CommandText = "Insert into Trips (VehicleId, RouteId, DepartureDate, Arrival, Status, TripType, MaxPassengers, DriverId) " +
                                   "OUTPUT INSERTED.TripID " +
                                   "values (@VehicleId, @RouteId, @DepartureDate, @Arrival, @Status, @TripType, @MaxPassengers, @DriverId)";
+=======
+            vehicles = new VehicleRepo();
+            routes = new Routes();
+        }
+        public bool ScheduleTrip(int vehicleId, int routeId, DateTime departureDate, DateTime arrivalDate,int maxPassengers)
+        {
+            try
+            {
+                cmd.CommandText = "Insert into Trips values (@VehicleId, @RouteId, @DepartureDate, @Arrival, @Status, @TripType, @MaxPassengers, @DriverId)";
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@VehicleId", vehicleId);
                 cmd.Parameters.AddWithValue("@RouteId", routeId);
@@ -46,15 +73,23 @@ namespace TransportMangementSystem.Repository
                 cmd.Parameters.AddWithValue("@MaxPassengers", maxPassengers);
                 cmd.Parameters.AddWithValue("@DriverId", DBNull.Value);
 
+<<<<<<< HEAD
                 scheduledTripId = Convert.ToInt32(cmd.ExecuteScalar());
 
                 if (scheduledTripId > 0)
+=======
+                cmd.Connection.Open();
+                int scheduleTripStatus = cmd.ExecuteNonQuery();
+
+                if (scheduleTripStatus > 0)
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
                 {
                     cmd.CommandText = "update Vehicles set Status = @Status where VehicleID = @VehicleId";
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@Status", "Booked");
                     cmd.Parameters.AddWithValue("@VehicleId", vehicleId);
                     cmd.ExecuteNonQuery();
+<<<<<<< HEAD
                     decimal price = distance * 8 * maxPassengers;
                     cmd.CommandText = "update Routes set Price = @Price where RouteID = @RouteId";
                     cmd.Parameters.Clear();
@@ -70,6 +105,15 @@ namespace TransportMangementSystem.Repository
                 Console.WriteLine("Error: " + ex.Message);
                 Console.ResetColor();
                 return -1;
+=======
+                }
+                return scheduleTripStatus > 0;
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             }
             finally
             {
@@ -77,11 +121,19 @@ namespace TransportMangementSystem.Repository
             }
         }
 
+<<<<<<< HEAD
         public void DisplayRoutes()
         {
             cmd.CommandText = "select * from Routes";
             cmd.Connection.Open();
             cmd.Parameters.Clear();
+=======
+
+        public void DisplayRoutes()
+        {
+            cmd.CommandText = "SELECT * FROM Routes";
+            cmd.Connection.Open();
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             SqlDataReader reader = cmd.ExecuteReader();
             Console.WriteLine("Available Routes:");
             Console.WriteLine("Route ID\tSource\t\tDestination\tDistance");
@@ -100,9 +152,16 @@ namespace TransportMangementSystem.Repository
 
         public void DisplayTrips()
         {
+<<<<<<< HEAD
             cmd.CommandText = @"select T.TripID, R.StartDestination as Source, R.EndDestination as Destination, R.Distance
                         from Trips T
                         join Routes R on T.RouteID = R.RouteID";
+=======
+            cmd.CommandText = @"SELECT T.TripID, R.StartDestination AS Source, R.EndDestination AS Destination, R.Distance
+                        FROM Trips T
+                        INNER JOIN Routes R ON T.RouteID = R.RouteID
+                        WHERE T.Status = 'Scheduled'";
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             cmd.Connection.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             Console.WriteLine("Trip Details:");
@@ -118,6 +177,7 @@ namespace TransportMangementSystem.Repository
             reader.Close();
             cmd.Connection.Close();
         }
+<<<<<<< HEAD
         public void DisplayScheduledTripDetails(int tripId)
         {
             try
@@ -160,15 +220,22 @@ namespace TransportMangementSystem.Repository
             }
         }
 
+=======
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 
         public bool CancelTrip(int tripId)
         {
             try
             {
+<<<<<<< HEAD
                 cmd.Parameters.Clear();
                 cmd.Connection.Open();
 
                 cmd.CommandText = "Update Trips Set Status = 'Cancelled' where TripId = @TripId";
+=======
+                cmd.Connection.Open();
+                cmd.CommandText = "Update Trips Set Status = 'Cancelled' WHERE TripId = @TripId";
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
                 cmd.Parameters.AddWithValue("@TripId", tripId);
 
                 int cancelTripStatus = cmd.ExecuteNonQuery();
@@ -189,7 +256,11 @@ namespace TransportMangementSystem.Repository
                     cmd.ExecuteNonQuery();
                     cmd.Connection.Close();
                 }
+<<<<<<< HEAD
                 return cancelTripStatus > 0;
+=======
+                return cancelTripStatus > 0 ? true : false;
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             }
             catch (System.Exception ex)
             {
@@ -201,6 +272,7 @@ namespace TransportMangementSystem.Repository
                 cmd.Connection.Close();
             }
         }
+<<<<<<< HEAD
 
         public void DisplayTripsForCancelation()
         {
@@ -225,5 +297,7 @@ namespace TransportMangementSystem.Repository
             reader.Close();
             cmd.Connection.Close();
         }
+=======
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
     }
 }

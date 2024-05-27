@@ -1,7 +1,19 @@
+<<<<<<< HEAD
 ﻿
 using System.Data;
 using System.Data.SqlClient;
 
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 using TransportMangementSystem.Exception;
 using TransportMangementSystem.Model;
 using TransportMangementSystem.Util;
@@ -12,7 +24,10 @@ namespace TransportMangementSystem.Repository
     {
         SqlConnection sqlConnection = null;
         SqlCommand cmd = null;
+<<<<<<< HEAD
         Passengers passengers = new Passengers();
+=======
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
 
         public BookingRepo()
         {
@@ -20,6 +35,7 @@ namespace TransportMangementSystem.Repository
             cmd = new SqlCommand();
             cmd.Connection = sqlConnection;
         }
+<<<<<<< HEAD
         public bool BookTrip(int tripId, Passengers user,int passengerId)
         {
             if (passengers.CheckIfUserIsAdmin())
@@ -189,10 +205,29 @@ namespace TransportMangementSystem.Repository
 
                     Console.WriteLine($"{bookingId}\t\t{tripId}\t\t{bookingDate}\t\t{passengerName}");
                 }
+=======
+        public bool BookTrip(int tripId, int passengerId, DateTime bookingDate)
+        {
+            try
+            {
+                cmd.Connection.Open(); 
+                cmd.CommandText = "INSERT INTO Bookings VALUES (@TripID, @PassengerID, @BookingDate, @Status)";
+                cmd.Parameters.AddWithValue("@TripID", tripId);
+                cmd.Parameters.AddWithValue("@PassengerID", passengerId);
+                cmd.Parameters.AddWithValue("@BookingDate", bookingDate);
+                cmd.Parameters.AddWithValue("@Status", "Confirmed");
+                int bookTripStatus = cmd.ExecuteNonQuery();
+                if (bookTripStatus == 0)
+                {
+                    throw new BookingNotFoundException("BookingId not found");
+                }
+                return true;
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
+<<<<<<< HEAD
             }
             catch (System.Exception ex)
             {
@@ -204,11 +239,57 @@ namespace TransportMangementSystem.Repository
                 {
                     cmd.Connection.Close();
                 }
+=======
+                return false;
+            }
+            catch(BookingNotFoundException ex)
+            {
+                Console.WriteLine("Booking Id is not Found");
+                return false;
+            }
+          
+            finally
+            {
+                cmd.Connection.Close();
+            }
+        }
+
+        public bool CancelBooking(int bookingId)
+        {
+            try
+            {
+                cmd.Connection.Open();
+                cmd.CommandText = "Update Bookings Set Status = 'Cancelled' WHERE BookingID = @BookingId";
+                cmd.Parameters.AddWithValue("@BookingID", bookingId);
+
+                int cancelTripStatus = cmd.ExecuteNonQuery();
+                if (cancelTripStatus == 0)
+                {
+                    throw new BookingNotFoundException("Id not found");
+                }
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            catch (BookingNotFoundException ex)
+            {
+                Console.WriteLine("Booking Id is not Found");
+                return false;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             }
         }
 
         public void DisplayConfirmedBookings()
         {
+<<<<<<< HEAD
             try
             {
                 cmd.Connection.Open();
@@ -245,6 +326,28 @@ namespace TransportMangementSystem.Repository
                     cmd.Connection.Close();
                 }
             }
+=======
+            cmd.Connection.Open();
+            cmd.CommandText = @"SELECT B.BookingID, B.TripID, B.BookingDate, P.FirstName AS PassengerName
+                        FROM Bookings B
+                        INNER JOIN Passengers P ON B.PassengerID = P.PassengerID
+                        WHERE B.Status = 'Confirmed'";
+            
+            SqlDataReader reader = cmd.ExecuteReader();
+            Console.WriteLine("Confirmed Bookings:");
+            Console.WriteLine("Booking ID\tTrip ID\t\tBooking Date\t\tPassenger Name");
+            while (reader.Read())
+            {
+                int bookingId = (int)reader["BookingID"];
+                int tripId = (int)reader["TripID"];
+                DateTime bookingDate = (DateTime)reader["BookingDate"];
+                string passengerName = (string)reader["PassengerName"];
+
+                Console.WriteLine($"{bookingId}\t\t{tripId}\t\t{bookingDate}\t\t{passengerName}");
+            }
+            reader.Close();
+            cmd.Connection.Close();
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
         }
 
         public bool MapDriverToVehicle(Driver driver, Vehicles vehicle,Trips trips)
@@ -265,6 +368,7 @@ namespace TransportMangementSystem.Repository
             {
                 cmd.Connection.Open();
                 cmd.CommandText = @"SELECT B.BookingID, B.TripID, B.BookingDate, B.Status, 
+<<<<<<< HEAD
                             P.PassengerID, P.FirstName AS PassengerName, 
                             P.PhoneNumber AS PassengerPhoneNumber,
                             R.StartDestination, R.EndDestination
@@ -277,6 +381,19 @@ namespace TransportMangementSystem.Repository
                 cmd.Parameters.AddWithValue("@TripId", tripId);
 
 
+=======
+                P.PassengerID, P.FirstName AS PassengerName, 
+                P.PhoneNumber AS PassengerPhoneNumber,
+                R.StartDestination, R.EndDestination
+                FROM Bookings B 
+                JOIN Passengers P ON B.PassengerID = P.PassengerID 
+                JOIN Trips T ON B.TripID = T.TripID
+                JOIN Routes R ON T.RouteID = R.RouteID
+                WHERE B.TripID = @TripId";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@TripId", tripId);
+                
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -307,11 +424,15 @@ namespace TransportMangementSystem.Repository
                     bookings.Add(booking);
                 }
                 reader.Close();
+<<<<<<< HEAD
 
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
+=======
+                
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             }
             catch (BookingNotFoundException ex)
             {
@@ -323,11 +444,16 @@ namespace TransportMangementSystem.Repository
             }
             return bookings;
         }
+<<<<<<< HEAD
         public List<Bookings> GetBookingsByTrip(int tripId, int userId)
+=======
+        public List<Bookings> getBookingsByPassenger(int passengerId)
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
         {
             List<Bookings> bookings = new List<Bookings>();
             try
             {
+<<<<<<< HEAD
                 cmd.Connection.Open();
                 cmd.CommandText = @"SELECT B.BookingID, B.TripID, B.BookingDate, B.Status, 
                                 B.PassengerID, P.FirstName AS PassengerName, 
@@ -456,6 +582,8 @@ namespace TransportMangementSystem.Repository
             List<Bookings> bookings = new List<Bookings>();
             try
             {
+=======
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
                 cmd.CommandText = @"select B.BookingID, B.TripID, B.BookingDate, B.Status, 
                 P.PassengerID, P.FirstName as PassengerName, 
                 P.PhoneNumber as PassengerPhoneNumber,
@@ -487,7 +615,10 @@ namespace TransportMangementSystem.Repository
                     {
                         StartDestination = (string)reader["StartDestination"],
                         EndDestination = (string)reader["EndDestination"]
+<<<<<<< HEAD
                         //Price = reader.IsDBNull(reader.GetOrdinal("Price"))? 0 : Convert.ToDecimal(reader["Price"])
+=======
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
                     };
                     Driver driver = new Driver
                     {
@@ -507,6 +638,7 @@ namespace TransportMangementSystem.Repository
                     };
                     bookings.Add(booking);
                 }
+<<<<<<< HEAD
                 
                 if (bookings.Count == 0)
                 {
@@ -590,15 +722,25 @@ namespace TransportMangementSystem.Repository
                 Console.WriteLine("SQL Error: " + ex.Message);
             }
             catch (System.Exception ex)
+=======
+                reader.Close();
+                
+            }
+            catch (BookingNotFoundException ex)
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
             finally
             {
+<<<<<<< HEAD
                 if (sqlConnection.State == System.Data.ConnectionState.Open)
                 {
                     sqlConnection.Close();
                 }
+=======
+                cmd.Connection.Close();
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             }
             return bookings;
         }
@@ -607,7 +749,11 @@ namespace TransportMangementSystem.Repository
             try
             {
                 cmd.Connection.Open();
+<<<<<<< HEAD
                 cmd.CommandText = "Select PassengerId,FirstName,PhoneNumber from Passengers where Role = 'User'";
+=======
+                cmd.CommandText = "Select PassengerId,FirstName,PhoneNumber from Passengers";
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -620,11 +766,15 @@ namespace TransportMangementSystem.Repository
                 }
                 reader.Close();
             }
+<<<<<<< HEAD
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
             catch (System.Exception ex)
+=======
+            catch(System.Exception ex)
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
             {
                 Console.WriteLine(ex.Message);
             }
@@ -633,8 +783,11 @@ namespace TransportMangementSystem.Repository
                 cmd.Connection.Close();
             }
         }
+<<<<<<< HEAD
 
         
+=======
+>>>>>>> 8a098114f76984c37ce76a6374a74183846fd904
     }
 }
 
